@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نورت يا هندسة ✨</title>
+  <style>
+    body {
+      font-family: "Cairo", sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #f8fafc;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      animation: glow 2s infinite alternate, float 3s ease-in-out infinite;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease forwards;
+    }
+    button {
+      padding: 12px 25px;
+      border: none;
+      background: #22c55e;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 2s infinite;
+    }
+    button:hover {
+      background: #15803d;
+      transform: scale(1.1) rotate(2deg);
+      box-shadow: 0 0 20px #22c55e;
+    }
+
+    /* الخلفية نجوم متحركة */
+    .stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: starMove 5s linear infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #22c55e; }
+      to { text-shadow: 0 0 20px #22c55e; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes starMove {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>نــورت يا هندســة 😎🔥</h1>
+  <p>الإفكتات دي معمولة مخصوص ليك!</p>
+  <button onclick="sayHello()">اضغط يا باشمهندس</button>
+
+  <script>
+    function sayHello() {
+      alert("إنت منور الدنيا يا هندسة ✨😎");
+    }
+
+    // توليد نجوم متحركة
+    for (let i = 0; i < 50; i++) {
+      let star = document.createElement("div");
+      star.className = "stars";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.animationDuration = (2 + Math.random() * 4) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
